@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background GIF */
+    body::before {
+      content: "";
+      background: url('https://i.gifer.com/7plk.gif') no-repeat center center fixed;
+      background-size: cover;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -2;
+    }
+
+    /* Overlay to improve text readability */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 240, 245, 0.6);
+      z-index: -1;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      max-width: 600px;
+      margin: auto;
+      margin-top: 5%;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #e91e63;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin: 20px 0;
+    }
+
+    .note {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #444;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .heart {
+      font-size: 2em;
+      color: #e91e63;
+      margin-top: 20px;
+    }
+
+    /* Floating hearts */
+    .floating-heart {
+      position: fixed;
+      bottom: -50px;
+      width: 20px;
+      height: 20px;
+      background: red;
+      opacity: 0.7;
+      animation: float 6s infinite ease-in;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(45deg);
+    }
+
+    .floating-heart::before,
+    .floating-heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .floating-heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .floating-heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Hidden YouTube player for background song */
+    #bg-music {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Birthday, My Love 💖</h1>
+    <div class="quote">
+      "You are the reason I smile a little more, laugh a little louder, and love a lot deeper. Happy Birthday to the one who owns my heart."
+    </div>
+    <div class="note">
+      Every moment with you is a blessing. I’m so lucky to walk this life with you by my side. <br>
+      May this year bring you as much joy as you bring into my life.<br><br>
+      With all my love,<br>
+      <strong>— Your Forever Person 💌</strong>
+    </div>
+    <div class="heart">❤️</div>
+  </div>
+
+  <!-- Background music (YouTube embed) -->
+  <div id="bg-music">
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/9GFI6Rf-IkI?autoplay=1&loop=1&playlist=9GFI6Rf-IkI" 
+      frameborder="0" allow="autoplay" allowfullscreen></iframe>
+  </div>
+
+  <!-- Floating Hearts (10 randomly timed) -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
